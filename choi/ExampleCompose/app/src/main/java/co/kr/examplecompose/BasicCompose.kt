@@ -71,8 +71,6 @@ fun BasicCompose(
                 ExampleComponent(idx = it + 1)
             }
         }
-
-
     }
 }
 
