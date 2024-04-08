@@ -22,7 +22,9 @@ class MainActivity : ComponentActivity() {
             val oneViewModel = ViewModelProvider(
                 this,
             )[OneViewModel::class.java]
-
+            val twoViewModel = ViewModelProvider(
+                this,
+            )[TwoViewModel::class.java]
             val navController: NavHostController = rememberNavController()
 
             val navigationActions = remember(navController) {
@@ -34,7 +36,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color.White
                 ) {
-                    SetUpNavGraph(appNavigationActions = navigationActions, navController = navController, oneViewModel = oneViewModel)
+                    SetUpNavGraph(appNavigationActions = navigationActions, navController = navController, oneViewModel = oneViewModel, twoViewModel = twoViewModel)
                 }
             }
         }

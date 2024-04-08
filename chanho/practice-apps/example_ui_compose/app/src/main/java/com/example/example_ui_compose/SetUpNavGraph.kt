@@ -9,7 +9,8 @@ import androidx.navigation.compose.composable
 fun SetUpNavGraph(
     appNavigationActions: AppNavigationActions,
     navController: NavHostController,
-    oneViewModel: OneViewModel
+    oneViewModel: OneViewModel,
+    twoViewModel: TwoViewModel
 ) {
     NavHost(
         navController = navController,
@@ -28,7 +29,7 @@ fun SetUpNavGraph(
         composable(
             route = AllDestinations.TWOSCREEN
         ) {
-            TwoScreen(appNavigationActions = appNavigationActions)
+            TwoScreen(appNavigationActions = appNavigationActions, twoViewModel = twoViewModel)
         }
     }
 } // End of setUpNavGraph
