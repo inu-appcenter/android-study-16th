@@ -4,19 +4,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.change.setOnClickListener({
+            binding.textView.text = "테스트"
+        })
+        binding.button3.setOnClickListener({
+            binding.textView.text = "완료!"
+        })
         }
-
-    fun onBtnClicked(view: View) {
-        val textView = findViewById<TextView>(R.id.textView)
-        textView.text = "1주차 미션 완료..?"
-    }
-    fun onBtn2Clicked(view: View) {
-        val textView = findViewById<TextView>(R.id.textView)
-        textView.text = "나 인간 승리 해버린 ㅋㅋ"
-    }
+    
 }
