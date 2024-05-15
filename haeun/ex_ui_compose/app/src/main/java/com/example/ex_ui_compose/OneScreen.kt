@@ -20,7 +20,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.ex_ui_compose.ui.theme.Ex_ui_composeTheme
 import androidx.compose.material3.Scaffold
-import com.example.ex_ui_compose.ui.theme.AppBar
+import com.example.ex_ui_compose.component.AppBar
 
 @RequiresApi(Build.VERSION_CODES.O)
 

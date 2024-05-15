@@ -1,4 +1,4 @@
-package com.example.ex_ui_compose.ui.theme
+package com.example.ex_ui_compose.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

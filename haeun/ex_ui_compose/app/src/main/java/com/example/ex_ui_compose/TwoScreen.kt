@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.ex_ui_compose.ui.theme.Ex_ui_composeTheme
-import com.example.ex_ui_compose.ui.theme.AppBar
+import com.example.ex_ui_compose.component.AppBar
 
 @Composable
 fun TwoScreen(navController: NavHostController) {
