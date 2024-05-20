@@ -1,17 +1,17 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id ("kotlin-kapt")
 }
 
 android {
-    namespace = "com.example.retrofit_practice_compose"
+    namespace = "com.example.room_db_compose"
     compileSdk = 34
 
-
     defaultConfig {
-        applicationId = "com.example.retrofit_practice_compose"
+        applicationId = "com.example.room_db_compose"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
@@ -21,10 +21,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-
-        buildConfigField("String", "API_KEY", getApiKey("API_KEY"))
-
-
     }
 
     buildTypes {
@@ -37,15 +33,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
-        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -59,9 +54,17 @@ android {
 
 dependencies {
 
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.activity:activity-compose:1.9.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
@@ -74,14 +77,4 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-    // retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-// gson converter
-// 서버 응답을 객체로 변환
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-}
-
-fun getApiKey(propertyKey: String): String {
-    return gradleLocalProperties(rootDir).getProperty(propertyKey)
 }

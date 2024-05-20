@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface GoodRestaurantRepo {
     companion object {
-        private const val AUTH_KEY = "5Tw4gPbww2dQMFhoVXyQoDIB4Cr1pH1ESs4wUW6yvH2cce6EqVxaZ2nZyR7pzP1ctxWQKBUuCulkq2sMkvJBQg=="
+        private const val AUTH_KEY = BuildConfig.API_KEY
     }
 
     @GET("/api/15056470/v1/uddi:d9cab793-e537-442d-a3ab-ad087f3479c3")
